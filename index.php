@@ -11,7 +11,8 @@ $loader = new Loader();
 // Register some namespaces
 $loader->registerNamespaces(
     array(
-        "Models"    => __DIR__ . '/../app/models',
+        "Models"    => __DIR__ . '/app/models',
+        "Controllers"    => __DIR__ . '/app/controllers',
     )
 );
 
@@ -35,11 +36,7 @@ $di->set('db', function () {
 $app = new Micro($di);
 
 // Retrieves all orders
-$app->get('/api/orders', function () {
-    $order = new \Models\Order();
-    $orderItem = new \Models\Order\Items();
-
-    die('orders');
-});
+$indexController = new \Controllers\IndexController();
+$app->get('/api/orders', array($indexController, "indexAction"));
 
 $app->handle();
