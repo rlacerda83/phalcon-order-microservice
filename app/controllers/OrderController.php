@@ -5,14 +5,24 @@ namespace Controllers;
 use models\Order;
 use Phalcon\Mvc\Controller;
 
-class IndexController extends Controller
+class OrderController extends Controller
 {
 
-    public function indexAction()
+    public function getAllAction()
     {
 //        $order = new Order();
 //        $order->setObservations('Teste');
         die('ok');
+    }
+
+    public function createAction()
+    {
+
+    }
+
+    public function getOrderAction()
+    {
+
     }
 
 }

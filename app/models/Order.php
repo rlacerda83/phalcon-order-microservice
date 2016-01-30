@@ -6,6 +6,8 @@ use Phalcon\Mvc\Model;
 
 class Order extends Model
 {
+    const TABLE = 'Models\Order';
+
     /**
      * @var int
      */
@@ -33,8 +35,12 @@ class Order extends Model
     public function initialize()
     {
         $this->hasMany('id', 'Models\Order\Items', 'order_id');
+        $this->hasMany('id', 'Models\Order\Status', 'order_id');
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
     	return (int) $this->id;

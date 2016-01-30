@@ -7,6 +7,9 @@ use Models\Order;
 
 class Items extends Model
 {
+
+    const TABLE = 'Models\Order\Items';
+
     /**
      * @var int
      */
@@ -56,6 +59,9 @@ class Items extends Model
         $this->belongsTo('order_id', 'Models\Order', 'id');
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
     	return (int) $this->id;
